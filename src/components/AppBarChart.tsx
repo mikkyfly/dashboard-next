@@ -22,13 +22,18 @@ const chartData = [
   { month: "Июнь", desktop: 214, mobile: 140 },
   { month: "Июль", desktop: 178, mobile: 40 },
   { month: "Август", desktop: 147, mobile: 87 },
+  { month: "Сентябрь", desktop: 247, mobile: 17 },
+  { month: "Октябрь", desktop: 107, mobile: 37 },
+  { month: "Ноябрь", desktop: 57, mobile: 8 },
+  { month: "Декабрь", desktop: 103, mobile: 67 },
+
 ];
 
 const AppBarChart = () => {
   return (
     <div className="">
       <h1 className="text-lg font-medium mb-6">Статистика инцидентов</h1>
-      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+      <ChartContainer config={chartConfig} className="min-h-[200px] max-h-[440px] w-full "> {/*w-full */}
         <BarChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis

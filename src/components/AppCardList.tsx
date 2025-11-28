@@ -48,40 +48,40 @@ const popularContent = [
 const latestTransactions = [
   {
     id: 1,
-    title: "Subscription Renewal",
-    badge: "John Doe",
+    title: "Пупки Василий",
+    badge: "admin",
     image:
       "/temp/6.webp",
     count: 1400,
   },
   {
     id: 2,
-    title: "Payment for Services",
-    badge: "Jane Smith",
+    title: "Радужная Алиса",
+    badge: "user",
     image:
       "/temp/7.jpeg",
     count: 2100,
   },
   {
     id: 3,
-    title: "Subscription Renewal",
-    badge: "Michael Johnson",
+    title: "Черный Майкл",
+    badge: "user",
     image:
       "/temp/8.webp",
     count: 1300,
   },
   {
     id: 4,
-    title: "Payment for Services",
-    badge: "Lily Adams",
+    title: "Радужная Евгения",
+    badge: "admin",
     image:
       "/temp/9.webp",
     count: 2500,
   },
   {
     id: 5,
-    title: "Subscription Renewal",
-    badge: "Sam Brown",
+    title: "Кудрявый Игорь",
+    badge: "user",
     image:
       "/temp/10.jpeg",
     count: 1400,
@@ -90,7 +90,7 @@ const latestTransactions = [
 
 const AppCardList = ({ title }: { title: string }) => {
   const list =
-    title === "Popular Content" ? popularContent : latestTransactions;
+    title === "Список событий" ? popularContent : latestTransactions;
   return (
     <div className="">
       <h1 className="text-lg font-medium mb-6">{title}</h1>

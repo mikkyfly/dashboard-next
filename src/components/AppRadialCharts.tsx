@@ -9,12 +9,20 @@ import {
   RadialBarChart,
 } from "recharts"
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
 
 export const description = "A radial chart with a custom shape"
 
 const chartData = [
-  { browser: "safari", visitors: 1260, fill: "var(--color-safari)" },
+  { browser: "safari", visitors: 1260, fill: "var(--chart-1)" },
 ]
 
 const chartConfig = {
@@ -23,17 +31,21 @@ const chartConfig = {
   },
   safari: {
     label: "Safari",
-    color: "var(--chart-1)",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig
 
 export function AppRadialChart() {
   return (
-    <div className="">
-      <h1 className="text-lg font-medium mb-6">Статистика инцидентов</h1>
+    <Card className="flex flex-col">
+      <CardHeader className="items-center pb-0">
+        <CardTitle>Radial Chart - Shape</CardTitle>
+        <CardDescription>January - June 2024</CardDescription>
+      </CardHeader>
+      <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto aspect-square max-h-[310px]"
         >
           <RadialBarChart
             data={chartData}
@@ -82,15 +94,15 @@ export function AppRadialChart() {
             </PolarRadiusAxis>
           </RadialBarChart>
         </ChartContainer>
-        <div className="mt-4 flex flex-col gap-2 items-center">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Рост на 5,2% в этом месяце <TrendingUp className="h-4 w-4 text-green-500" />
+      </CardContent>
+      <CardFooter className="flex-col gap-2 text-sm">
+        <div className="flex items-center gap-2 leading-none font-medium">
+          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
-        <div className="leading-none text-muted-foreground">
-          Показано общее количество инцидентов
+        <div className="text-muted-foreground leading-none">
+          Showing total visitors for the last 6 months
         </div>
-      </div>
-      
-    </div>
+      </CardFooter>
+    </Card>
   )
 }

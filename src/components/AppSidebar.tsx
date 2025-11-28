@@ -69,7 +69,7 @@ const items = [
   },
   {
     title: "Настройки",
-    url: "#",
+    url: "/users/test",
     icon: Settings,
   },
 ];
