@@ -63,9 +63,9 @@ export function AppAreaChart() {
     <Card className="pt-0">
       <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
         <div className="grid flex-1 gap-1">
-          <CardTitle>Area Chart - Interactive</CardTitle>
+          <CardTitle>Статистика загрузки процессоров</CardTitle>
           <CardDescription>
-            Showing total visitors for the last 3 months
+            Показано общее количество данных за последние 3 месяца
           </CardDescription>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
@@ -77,13 +77,13 @@ export function AppAreaChart() {
           </SelectTrigger>
           <SelectContent className="rounded-xl">
             <SelectItem value="90d" className="rounded-lg">
-              Last 3 months
+              Последние 3 месяца
             </SelectItem>
             <SelectItem value="30d" className="rounded-lg">
-              Last 30 days
+              Последние 30 дней
             </SelectItem>
             <SelectItem value="7d" className="rounded-lg">
-              Last 7 days
+              Последние 7 дней
             </SelectItem>
           </SelectContent>
         </Select>
@@ -129,7 +129,7 @@ export function AppAreaChart() {
               minTickGap={32}
               tickFormatter={(value) => {
                 const date = new Date(value)
-                return date.toLocaleDateString("en-US", {
+                return date.toLocaleDateString("ru-RU", {
                   month: "short",
                   day: "numeric",
                 })
@@ -140,7 +140,7 @@ export function AppAreaChart() {
               content={
                 <ChartTooltipContent
                   labelFormatter={(value) => {
-                      return new Date(value).toLocaleDateString("en-US", {
+                      return new Date(value).toLocaleDateString("ru-RU", {
                           month: "short",
                           day: "numeric",
                       })

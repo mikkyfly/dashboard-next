@@ -14,6 +14,7 @@ import {
   BarChart,
   PieChart,
   Network,
+  LaptopMinimalCheck
 } from "lucide-react";
 import {
   Sidebar,
@@ -120,7 +121,7 @@ const AppSidebar = () => {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/#">
+                  <Link href="/topology">
                     <Network />
                     Топология
                   </Link>
@@ -166,7 +167,7 @@ const AppSidebar = () => {
           <SidebarGroup>
             <SidebarGroupLabel asChild>
               <CollapsibleTrigger>
-                Группировка графиков
+                Пользовательские окна
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
               </CollapsibleTrigger>
             </SidebarGroupLabel>
@@ -176,8 +177,8 @@ const AppSidebar = () => {
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <Link href="/#">
-                        <Projector />
-                        Посмотреть все графики
+                        <LaptopMinimalCheck />
+                        Окно 1
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -185,7 +186,7 @@ const AppSidebar = () => {
                     <SidebarMenuButton asChild>
                       <Link href="/#">
                         <Plus />
-                        Добавить группу
+                        Добавить окно
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

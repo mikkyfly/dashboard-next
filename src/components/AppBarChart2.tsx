@@ -115,14 +115,14 @@ const chartData = [
 
 const chartConfig = {
   views: {
-    label: "Page Views",
+    label: "Инцидентов",
   },
   desktop: {
-    label: "Desktop",
+    label: "Предупреждение",
     color: "var(--chart-1)",
   },
   mobile: {
-    label: "Mobile",
+    label: "Аварии",
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
@@ -143,9 +143,9 @@ export function AppBarChart2() {
     <Card className="py-0">
       <CardHeader className="flex flex-col items-stretch border-b !p-0 sm:flex-row">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 pt-4 pb-3 sm:!py-0">
-          <CardTitle>Bar Chart - Interactive</CardTitle>
+          <CardTitle>Статистика инцидентов</CardTitle>
           <CardDescription>
-            Showing total visitors for the last 3 months
+            Показано общее количество инцидентов за последние 3 месяца
           </CardDescription>
         </div>
         <div className="flex">
@@ -191,7 +191,7 @@ export function AppBarChart2() {
               minTickGap={32}
               tickFormatter={(value) => {
                 const date = new Date(value)
-                return date.toLocaleDateString("en-US", {
+                return date.toLocaleDateString("ru-RU", {
                   month: "short",
                   day: "numeric",
                 })
@@ -203,7 +203,7 @@ export function AppBarChart2() {
                     className="w-[150px]"
                     nameKey="views"
                     labelFormatter={(value) => {
-                        return new Date(value).toLocaleDateString("en-US", {
+                        return new Date(value).toLocaleDateString("ru-RU", {
                             month: "short",
                             day: "numeric",
                             year: "numeric",

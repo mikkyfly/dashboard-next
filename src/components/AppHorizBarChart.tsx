@@ -73,7 +73,7 @@ export function AppHorizBarChart() {
               cursor={false}
               content={<ChartTooltipContent hideLabel active={false} payload={[]} coordinate={undefined} accessibilityLayer={false} activeIndex={undefined} />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={5} />
+            <Bar dataKey="desktop" fill="var(--chart-2)" radius={5} />
           </BarChart>
         </ChartContainer>
       </CardContent>
