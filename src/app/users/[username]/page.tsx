@@ -14,7 +14,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
-import { BadgeCheck, Candy, Citrus, Shield } from "lucide-react";
+import { BadgeCheck, Crown, Shield,Code } from "lucide-react";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import EditUser from "@/components/EditUser";
@@ -35,7 +35,7 @@ const SingleUserPage = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>John Doe</BreadcrumbPage>
+            <BreadcrumbPage>Администратор</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -45,7 +45,7 @@ const SingleUserPage = () => {
         <div className="w-full xl:w-1/3 space-y-6">
           {/* USER BADGES CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
-            <h1 className="text-xl font-semibold">User Badges</h1>
+            <h1 className="text-xl font-semibold">Привелегии пользователя</h1>
             <div className="flex gap-4 mt-4">
               <HoverCard>
                 <HoverCardTrigger>
@@ -55,9 +55,9 @@ const SingleUserPage = () => {
                   />
                 </HoverCardTrigger>
                 <HoverCardContent>
-                  <h1 className="font-bold mb-2">Verified User</h1>
+                  <h1 className="font-bold mb-2">Проверенный пользователь</h1>
                   <p className="text-sm text-muted-foreground">
-                    This user has been verified by the admin.
+                    Этот пользователь был проверен администратором.
                   </p>
                 </HoverCardContent>
               </HoverCard>
@@ -71,28 +71,27 @@ const SingleUserPage = () => {
                 <HoverCardContent>
                   <h1 className="font-bold mb-2">Admin</h1>
                   <p className="text-sm text-muted-foreground">
-                    Admin users have access to all features and can manage
-                    users.
+                    Пользователи с правами администратора имеют доступ ко всем функциям и могут управлять пользователями.
                   </p>
                 </HoverCardContent>
               </HoverCard>
               <HoverCard>
                 <HoverCardTrigger>
-                  <Candy
+                  <Code
                     size={36}
                     className="rounded-full bg-yellow-500/30 border-1 border-yellow-500/50 p-2"
                   />
                 </HoverCardTrigger>
                 <HoverCardContent>
-                  <h1 className="font-bold mb-2">Awarded</h1>
+                  <h1 className="font-bold mb-2">Разработчик</h1>
                   <p className="text-sm text-muted-foreground">
-                    This user has been awarded for their contributions.
+                    Является разработчиком
                   </p>
                 </HoverCardContent>
               </HoverCard>
               <HoverCard>
                 <HoverCardTrigger>
-                  <Citrus
+                  <Crown
                     size={36}
                     className="rounded-full bg-orange-500/30 border-1 border-orange-500/50 p-2"
                   />
@@ -109,10 +108,10 @@ const SingleUserPage = () => {
           {/* INFORMATION CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
             <div className="flex items-center justify-between">
-              <h1 className="text-xl font-semibold">User Information</h1>
+              <h1 className="text-xl font-semibold">Информация о пользователе</h1>
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button>Edit User</Button>
+                  <Button>Редактирование данных</Button>
                 </SheetTrigger>
                 <EditUser />
               </Sheet>
@@ -120,38 +119,38 @@ const SingleUserPage = () => {
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
                 <p className="text-sm text-muted-foreground">
-                  Profile completion
+                  Профиль заполнен
                 </p>
                 <Progress value={66} />
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">Username:</span>
-                <span>john.doe</span>
+                <span className="font-bold">Имя пользователя:</span>
+                <span>Администратор</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">Email:</span>
-                <span>john.doe@gmail.com</span>
+                <span className="font-bold">Почта:</span>
+                <span>admin@admin.ru</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">Phone:</span>
+                <span className="font-bold">Телефон:</span>
                 <span>+1 234 5678</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">Location:</span>
-                <span>New York, NY</span>
+                <span className="font-bold">Адрес:</span>
+                <span>Россия, Тюмень</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold">Role:</span>
+                <span className="font-bold">Роль:</span>
                 <Badge>Admin</Badge>
               </div>
             </div>
             <p className="text-sm text-muted-foreground mt-4">
-              Joined on 2025.01.01
+              Присоеденился в 2025.01.01
             </p>
           </div>
           {/* CARD LIST CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
-            <CardList title="Recent Transactions" />
+            <CardList title="Список пользователей" />
           </div>
         </div>
         {/* RIGHT */}
@@ -160,21 +159,18 @@ const SingleUserPage = () => {
           <div className="bg-primary-foreground p-4 rounded-lg space-y-2">
             <div className="flex items-center gap-2">
               <Avatar className="size-12">
-                <AvatarImage src="https://avatars.githubusercontent.com/u/1486366" />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarImage src="/temp/images.jpg" />
+                <AvatarFallback>AD</AvatarFallback>
               </Avatar>
-              <h1 className="text-xl font-semibold">John Doe</h1>
+              <h1 className="text-xl font-semibold">Администратор</h1>
             </div>
             <p className="text-sm text-muted-foreground">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel
-              voluptas distinctio ab ipsa commodi fugiat labore quos veritatis
-              cum corrupti sed repudiandae ipsum, harum recusandae ratione ipsam
-              in, quis quia.
+              Это специалист, отвечающий за техническую поддержку, работоспособность, безопасность и развитие веб-ресурса
             </p>
           </div>
           {/* CHART CONTAINER */}
           <div className="bg-primary-foreground p-4 rounded-lg">
-            <h1 className="text-xl font-semibold">User Activity</h1>
+            <h1 className="text-xl font-semibold">Активность пользователя</h1>
             <AppLineChart />
           </div>
         </div>

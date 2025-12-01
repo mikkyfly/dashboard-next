@@ -43,10 +43,10 @@ const EditUser = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "john.doe",
-      email: "john.doe@gmail.com",
+      username: "Администратор",
+      email: "admin@admin.com",
       phone: "+1 234 5678",
-      location: "New York, NY",
+      location: "Россия, Тюмень",
       role: "admin",
     },
   });
@@ -62,12 +62,12 @@ const EditUser = () => {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Имя пользователя</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      This is your public username.
+                      Для изменения имя пользователя введи в строку
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -78,12 +78,12 @@ const EditUser = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Почта</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      Only admin can see your email.
+                      Для изменения почты введи в строку
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -94,12 +94,12 @@ const EditUser = () => {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone</FormLabel>
+                    <FormLabel>Телефон</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      Only admin can see your phone number.
+                      Для изменения телефона введи в строку
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -110,12 +110,12 @@ const EditUser = () => {
                 name="location"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Location</FormLabel>
+                    <FormLabel>Адрес</FormLabel>
                     <FormControl>
                       <Input {...field} />
                     </FormControl>
                     <FormDescription>
-                      This is the public location.
+                      Для изменения адреса введи в строку
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -126,7 +126,7 @@ const EditUser = () => {
                 name="role"
                 render={({  }) => ( //field
                   <FormItem>
-                    <FormLabel>Role</FormLabel>
+                    <FormLabel>Роль</FormLabel>
                     <FormControl>
                       <Select>
                         <SelectTrigger>
@@ -139,13 +139,13 @@ const EditUser = () => {
                       </Select>
                     </FormControl>
                     <FormDescription>
-                      Only verified users can be admin.
+                      Выбирете роль
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Сохранить</Button>
             </form>
           </Form>
         </SheetDescription>
