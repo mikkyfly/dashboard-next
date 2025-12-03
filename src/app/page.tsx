@@ -1,11 +1,12 @@
 // import AppBarChart from "@/components/AppBarChart";
 import AppCardList from "@/components/AppCardList";
-// import AppPieChart from "@/components/AppPieChart";
+// import {AppPieChart} from "@/components/AppPieChart";
 import { AppRadialChart } from "@/components/AppRadialCharts";
 import { AppAreaChart } from "@/components/AppAreaChart";
-import AppTodoList from "@/components/AppTodoList";
+// import AppTodoList from "@/components/AppTodoList";
 import { AppHorizBarChart } from "@/components/AppHorizBarChart";
 import { AppBarChart2 } from "@/components/AppBarChart2";
+import { AppRadarChart } from "@/components/AppRadarChart";
 
 export default function Home() {
   return (
@@ -22,7 +23,8 @@ export default function Home() {
         <AppRadialChart />
       </div>
       <div className="bg-primary-foreground p-4 rounded-lg">
-        <AppTodoList />
+        {/* <AppTodoList /> */}
+        <AppRadarChart />
       </div>
       <div className="bg-primary-foreground p-4 rounded-lg lg:col-span-2 xl:col-span-1 2xl:col-span-2">
         <AppAreaChart />

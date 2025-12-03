@@ -55,7 +55,7 @@ const items = [
   },
   {
     title: "Таблица логов",
-    url: "/payments",
+    url: "/logs",
     icon: Inbox,
   },
   {
