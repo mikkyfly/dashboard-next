@@ -12,9 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button"
-import { SidebarTrigger,useSidebar } from "./ui/sidebar"
+import { SidebarTrigger } from "./ui/sidebar"
 
 const Navbar = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { theme, setTheme } = useTheme();
   // const { toggleSidebar } = useSidebar();
 

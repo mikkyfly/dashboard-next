@@ -162,7 +162,7 @@ export function AppLogsTable({ logs, onExport }: LogTableProps) {
   const columns: ColumnDef<LogEntry>[] = [
     {
       accessorKey: 'timestamp',
-      header: ({  }) => {
+      header: () => {
         return (
           <div className="flex flex-col space-y-2">
             <span>

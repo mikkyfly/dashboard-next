@@ -14,7 +14,8 @@ import {
   BarChart,
   PieChart,
   Network,
-  LaptopMinimalCheck
+  LaptopMinimalCheck,
+  User
 } from "lucide-react";
 import {
   Sidebar,
@@ -39,6 +40,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import {
@@ -240,9 +242,19 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>Аккаунт</DropdownMenuItem>
-                <DropdownMenuItem>Настройки</DropdownMenuItem>
-                <DropdownMenuItem>Выход</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <User className="h-[1.2rem] w-[1.2rem] mr-2" />
+                  Администратор
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <User className="h-[1.2rem] w-[1.2rem] mr-2" />
+                  Пользователь
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem >
+                  <Plus className="h-[1.2rem] w-[1.2rem] mr-2"/>
+                  Добавить профиль
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>

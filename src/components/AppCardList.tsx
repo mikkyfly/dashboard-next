@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
+// import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 const popularContent = [
   {
@@ -86,6 +87,14 @@ const latestTransactions = [
       "/temp/10.jpeg",
     count: 1400,
   },
+  // {
+  //   id: 6,
+  //   title: "Кудрявый Игорь",
+  //   badge: "user",
+  //   image:
+  //     "/temp/10.jpeg",
+  //   count: 1400,
+  // },
 ];
 
 const AppCardList = ({ title }: { title: string }) => {
@@ -93,8 +102,11 @@ const AppCardList = ({ title }: { title: string }) => {
     title === "Список событий" ? popularContent : latestTransactions;
   return (
     <div className="">
+
       <h1 className="text-lg font-medium mb-6">{title}</h1>
       <div className="flex flex-col gap-2">
+      {/* <ScrollArea className="bg-primary-foreground rounded-md border h-[calc(100vh-900px)]"> */}
+
         {list.map((item) => (
           <Card key={item.id} className="flex-row items-center justify-between gap-4 p-4">
             <div className="w-12 h-12 rounded-sm relative overflow-hidden">
@@ -112,7 +124,10 @@ const AppCardList = ({ title }: { title: string }) => {
             <CardFooter className="p-0">{item.count / 1000}K</CardFooter>
           </Card>
         ))}
+      {/* </ScrollArea > */}
+
       </div>
+
     </div>
   );
 };

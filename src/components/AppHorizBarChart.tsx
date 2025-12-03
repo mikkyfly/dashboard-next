@@ -45,10 +45,10 @@ const chartConfig = {
 
 export function AppHorizBarChart() {
   return (
-    <Card className="h-[660px]">
+    <Card className="h-[100%]">
       <CardHeader className="h-20">
-        <CardTitle>Bar Chart - Horizontal</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Cтолбчатая диаграмма</CardTitle>
+        <CardDescription>Январь - Июнь 2025</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} >
@@ -79,10 +79,10 @@ export function AppHorizBarChart() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm ">
         <div className="flex gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Рост на 5,2% в этом месяце <TrendingUp className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
-          Showing total visitors for the last 6 months
+          Показано общее количество аварий за последние 6 месяцев
         </div>
       </CardFooter>
     </Card>

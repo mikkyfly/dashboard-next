@@ -37,15 +37,15 @@ const chartConfig = {
 
 export function AppRadialChart() {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col h-[100%]">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Radial Chart - Shape</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>Круговой график</CardTitle>
+        <CardDescription>Январь - Июнь 2025</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[310px]"
+          className="mx-auto aspect-square max-h-[300px]"
         >
           <RadialBarChart
             data={chartData}
@@ -84,7 +84,7 @@ export function AppRadialChart() {
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          Аварии
                         </tspan>
                       </text>
                     )
@@ -97,10 +97,10 @@ export function AppRadialChart() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Рост на 5,2% в этом месяце  <TrendingUp className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
-          Showing total visitors for the last 6 months
+          Показано общее количество аварий за последние 6 месяцев
         </div>
       </CardFooter>
     </Card>
