@@ -17,7 +17,7 @@ async function getLogs(): Promise<LogEntry[]> {
   const levels: LogEntry['level'][] = ['info', 'warning', 'error', 'debug'];
   const statusCodes = [200, 201, 301, 400, 401, 403, 404, 500, 502];
   
-  for (let i = 1; i <= 50; i++) {
+  for (let i = 1; i <= 1250; i++) {
     const level = levels[Math.floor(Math.random() * levels.length)];
     const source = sources[Math.floor(Math.random() * sources.length)];
     const hasUserId = Math.random() > 0.3;

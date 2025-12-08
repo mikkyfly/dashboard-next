@@ -12,7 +12,7 @@ import {
 ChartNetwork
 } from 'lucide-react';
 
-export default function Home() {
+export default function Topology() {
   return (
     <div className="">
       <div className="max-w-9xl mx-auto ">
@@ -34,7 +34,7 @@ export default function Home() {
         </div>
 
         {/* Схема БД */}
-        <div className='w-full h-[1100px] rounded-lg border border-secondary'>
+        <div className='w-full h-[1100px] rounded-lg border-1'> {/*rounded-lg border border-secondary */}
           <AppTopology />
 
         </div>  

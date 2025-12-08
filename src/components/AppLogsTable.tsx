@@ -8,10 +8,8 @@ import {
   getSortedRowModel,
   SortingState,
   useReactTable,
-
   FilterFn,
 } from '@tanstack/react-table';
-
 import {
   Table,
   TableBody,
@@ -22,7 +20,6 @@ import {
 } from '@/components/ui/table';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import {
@@ -435,33 +432,90 @@ export function AppLogsTable({ logs, onExport }: LogTableProps) {
     },
   });
 
-  const handleExport = () => {
-    if (onExport) {
-      onExport(filteredData);
-    } else {
-      const csvContent = [
-        ['Время', 'Уровень', 'Источник', 'Сообщение', 'Пользователь', 'Код состояния', 'IP', 'Длительность'],
-        ...filteredData.map(log => [
-          format(log.timestamp, 'yyyy-MM-dd HH:mm:ss'),
-          log.level,
-          log.source,
-          log.message,
-          log.userId || '',
-          log.statusCode || '',
-          log.ip || '',
-          log.duration ? `${log.duration}ms` : '',
-        ]),
-      ]
-        .map(row => row.map(cell => `"${cell}"`).join(','))
-        .join('\n');
+  // const handleExport = () => {
+  //   if (onExport) {
+  //     onExport(filteredData);
+  //   } else {
+  //     const csvContent = [
+  //       ['Время', 'Уровень', 'Источник', 'Сообщение', 'Пользователь', 'Код состояния', 'IP', 'Длительность'],
+  //       ...filteredData.map(log => [
+  //         format(log.timestamp, 'yyyy-MM-dd HH:mm:ss'),
+  //         log.level,
+  //         log.source,
+  //         log.message,
+  //         log.userId || '',
+  //         log.statusCode || '',
+  //         log.ip || '',
+  //         log.duration ? `${log.duration}ms` : '',
+  //       ]),
+  //     ]
+  //       .map(row => row.map(cell => `"${cell}"`).join(','))
+  //       .join('\n');
 
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `logs_${format(new Date(), 'yyyy-MM-dd_HH-mm')}.csv`;
-      link.click();
-    }
-  };
+  //     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  //     const link = document.createElement('a');
+  //     link.href = URL.createObjectURL(blob);
+  //     link.download = `logs_${format(new Date(), 'yyyy-MM-dd_HH-mm')}.csv`;
+  //     link.click();
+  //   }
+  // };
+  const handleExport = () => {
+  if (onExport) {
+    onExport(filteredData);
+  } else {
+    // Создаем CSV строку с правильной кодировкой
+    const headers = ['Время', 'Уровень', 'Источник', 'Сообщение', 'Пользователь', 'Код состояния', 'IP', 'Длительность', 'Детали'];
+    
+    // Экранируем значения для CSV
+    const escapeCsv = (value: unknown) => {
+      if (value == null) return '';
+      const stringValue = String(value);
+      // Экранируем кавычки и добавляем кавычки если есть запятые, кавычки или переносы строк
+      if (stringValue.includes(',') || stringValue.includes('"') || stringValue.includes('\n') || stringValue.includes('\r')) {
+        return `"${stringValue.replace(/"/g, '""')}"`;
+      }
+      return stringValue;
+    };
+
+    const rows = filteredData.map(log => [
+      format(log.timestamp, 'yyyy-MM-dd HH:mm:ss'),
+      log.level,
+      log.source,
+      log.message,
+      log.userId || '',
+      log.statusCode || '',
+      log.ip || '',
+      log.duration ? `${log.duration}ms` : '',
+      log.details ? JSON.stringify(log.details) : '',
+    ]);
+
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.map(cell => escapeCsv(cell)).join(','))
+    ].join('\r\n'); // Используем \r\n для совместимости с Windows
+
+    // Создаем BLOB с правильной кодировкой
+    const blob = new Blob(['\uFEFF' + csvContent], { 
+      type: 'text/csv;charset=utf-8;' 
+    });
+
+    // Создаем ссылку для скачивания
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = `logs_${format(new Date(), 'yyyy-MM-dd_HH-mm-ss')}.csv`;
+    
+    // Добавляем ссылку в DOM, кликаем и удаляем
+    document.body.appendChild(link);
+    link.click();
+    
+    // Очищаем ресурсы
+    setTimeout(() => {
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+};
 
   const handleClearAllFilters = () => {
     setColumnFilters([]);

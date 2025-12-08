@@ -45,7 +45,7 @@ const TableNode = ({ data }: { data: TableNodeData }) => {
   };
 
   return (
-    <div className="bg-card border-1 border-chart-6 rounded-sm shadow-lg min-w-[280px] relative">
+    <div className="bg-topology-body border-1  border-border rounded-md shadow-xl min-w-[280px] relative">
       {/* Handle для левой стороны */}
       <Handle
         type="target"
@@ -54,7 +54,7 @@ const TableNode = ({ data }: { data: TableNodeData }) => {
       />
       
       {/* Заголовок таблицы */}
-      <div className="flex items-center space-x-2 px-4 py-3 bg-card border-b border-chart-6 rounded-t-md ">
+      <div className="flex items-center space-x-2 px-4 py-3 bg-chart-6 border-b border-border rounded-t-md h-15">
         <div className="text-secondery">
           {data.icon}
         </div>
@@ -66,7 +66,7 @@ const TableNode = ({ data }: { data: TableNodeData }) => {
         {data.fields.map((field, index) => (
           <div
             key={index}
-            className="flex items-center justify-between px-4 py-2 hover:bg-secondary border-b border-sidebar-border last:border-b-0 relative"
+            className="flex items-center justify-between px-4 py-2 hover:bg-border border-b border-sidebar-border last:border-b-0 relative"
           >
             {/* Handle для каждого поля с внешним ключом */}
             {(field.primaryKey || field.foreignKey) && (
@@ -121,11 +121,11 @@ const TableNode = ({ data }: { data: TableNodeData }) => {
       </div>
 
       {/* Handle для правой стороны */}
-      <Handle
+      {/* <Handle
         type="source"
         position={Position.Right}
         className="w-3 h-3 bg-green-400 border-2 border-gray-800"
-      />
+      /> */}
     </div>
   );
 }

@@ -16,6 +16,8 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  --color-topology-head: var(--topology-head);
+  --color-topology-body: var(--topology-body);
   --color-chart-6: var(--chart-6);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
@@ -43,7 +45,6 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-custom-color: var(--custom-color);
-  --shadow: var(--box-shadow);
 }
 
 :root {
@@ -71,7 +72,9 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --chart-6: oklch(0.708 0 0);
+  --chart-6: oklch(0.696 0.17 162.48);
+  --topology-head:#3da58a;
+  --topology-body:#f2f0f0;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -81,7 +84,6 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --custom-color: oklch(0.6 0.2 150);
-  --box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5)
 }
 
 .dark {
@@ -109,6 +111,8 @@
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --chart-6: oklch(0.6 0.118 184.704);
+  --topology-head:#3da58a;
+  --topology-body:#1F2A40;
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -118,7 +122,6 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --custom-color: oklch(0.6 0.2 150);
-  --box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5)
 }
 
 @layer base {

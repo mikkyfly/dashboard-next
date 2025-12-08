@@ -2,11 +2,8 @@
 
 import { useCallback } from 'react';
 import ReactFlow, {
-  // Node,
-  // Edge,
   Background,
-  // Controls,
-  // MiniMap,
+  Controls,
   Connection,
   addEdge,
   useNodesState,
@@ -19,7 +16,6 @@ import {
   Table, 
   Link, 
   FileText,
-  // User,
   PcCase
 } from 'lucide-react';
 import TableNode from './TableNode';
@@ -42,10 +38,10 @@ export default function AppTopology() {
           { name: 'username', type: 'string', unique: true },
           { name: 'email', type: 'string', unique: true },
           { name: 'password_hash', type: 'string' },
-          { name: 'first_name', type: 'string' },
+          { name: 'first_name', type: 'string',primaryKey: true  },
           { name: 'last_name', type: 'string' },
           { name: 'created_at', type: 'datetime' },
-          { name: 'updated_at', type: 'datetime' },
+          { name: 'updated_at', type: 'datetime',unique: true },
           { name: 'is_active', type: 'boolean' }
         ]
       },
@@ -268,17 +264,18 @@ export default function AppTopology() {
   );
 
   return (
-    <div className="h-[100%]">
+    <div className="w-full h-[100%] ">
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        minZoom={0.4}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
         fitView
         proOptions={{hideAttribution:true}}  
-        className="bg-card"
+        className="bg-card rounded-md"
         connectionLineStyle={{ stroke: '#60a5fa', strokeWidth: 2 }}
       >
         <Background 
@@ -287,13 +284,17 @@ export default function AppTopology() {
           size={1} 
           color="#374151"
         />
-        {/* <Controls 
-          className="!bg-gray-800 !border !border-gray-700 rounded-md"
+        <Controls 
+          className="bg-gray-800 border border-gray-700 rounded-md"
           style={{
             backgroundColor: '#1f2937',
             borderColor: '#374151',
           }}
-        /> */}
+          // position="bottom-right"
+          showInteractive={false} 
+          showZoom={false}
+          showFitView={true}
+        />
         {/* <MiniMap 
           className="bg-gray-900 border border-gray-700"
           nodeColor="#1f2937"
