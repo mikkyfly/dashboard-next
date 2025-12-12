@@ -1,6 +1,6 @@
-// import AppBarChart from "@/components/AppBarChart";
-import AppCardList from "@/components/AppCardList";
-import { AppRadialChart } from "@/components/AppRadialCharts";
+import AppBarChart from "@/components/AppBarChart";
+// import AppCardList from "@/components/AppCardList";
+// import { AppRadialChart } from "@/components/AppRadialCharts";
 import { AppAreaChart } from "@/components/AppAreaChart";
 import { AppHorizBarChart } from "@/components/AppHorizBarChart";
 import { AppBarChart2 } from "@/components/AppBarChart2";
@@ -12,12 +12,16 @@ export default function Home() {
       <div className="bg-primary-foreground p-4 rounded-lg lg:col-span-2 xl:col-span-1 2xl:col-span-2">
         <AppBarChart2/>
       </div>
-      <div className="bg-primary-foreground p-4 rounded-lg">
+      <div className="bg-primary-foreground p-4 rounded-lg lg:col-span-2 xl:col-span-1 2xl:col-span-2">
+        {/* <AppCardList title="Список пользователей" /> */}
+        <AppBarChart/>
+      </div>
+      {/* <div className="bg-primary-foreground p-4 rounded-lg">
         <AppCardList title="Список пользователей" />
       </div>
       <div className="bg-primary-foreground p-4 rounded-lg">
         <AppRadialChart />
-      </div>
+      </div> */}
       <div className="bg-primary-foreground p-4 rounded-lg">
         <AppRadarChart />
       </div>
@@ -27,7 +31,6 @@ export default function Home() {
       <div className="bg-primary-foreground p-4 rounded-lg">
         <AppHorizBarChart />
       </div>
-
     </div>
   );
 }
