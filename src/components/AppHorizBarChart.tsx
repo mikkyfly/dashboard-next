@@ -2,6 +2,8 @@
 
 import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
+import { horizShortBar } from "./data/init-data-bar";
+
 
 import {
   Card,
@@ -20,22 +22,6 @@ import {
 
 export const description = "A horizontal bar chart"
 
-const chartData = [
-  { month: "Январь", desktop: 186 },
-  { month: "Февраль", desktop: 305 },
-  { month: "Март", desktop: 237 },
-  { month: "Апрель", desktop: 73 },
-  { month: "Май", desktop: 209 },
-  { month: "Июнь", desktop: 214 },
-  // { month: "Июль", desktop: 214 },
-  // { month: "Август", desktop: 214 },
-  // { month: "Сентябрь", desktop: 214 },
-  // { month: "Октябрь", desktop: 214 },
-  // { month: "Ноябрь", desktop: 214 },
-  // { month: "Декабрь", desktop: 214 },
-
-]
-
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -51,10 +37,10 @@ export function AppHorizBarChart() {
         <CardDescription>Январь - Июнь 2025</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} >
+        <ChartContainer config={chartConfig} className="min-h-[200px]" >
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={horizShortBar}
             layout="vertical"
             margin={{
               left: -20,

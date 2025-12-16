@@ -13,47 +13,14 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import {
-  ChartConfig,
+  // ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { pieConfig, pieData } from "./data/init-data-pie"
 
 export const description = "A donut chart with an active sector"
-
-const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
-]
-
-const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  chrome: {
-    label: "Chrome",
-    color: "var(--chart-1)",
-  },
-  safari: {
-    label: "Safari",
-    color: "var(--chart-2)",
-  },
-  firefox: {
-    label: "Firefox",
-    color: "var(--chart-6)",
-  },
-  edge: {
-    label: "Edge",
-    color: "var(--chart-4)",
-  },
-  other: {
-    label: "Other",
-    color: "var(--chart-5)",
-  },
-} satisfies ChartConfig
 
 export function AppPieChart() {
   return (
@@ -64,7 +31,7 @@ export function AppPieChart() {
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
-          config={chartConfig}
+          config={pieConfig}
           className="mx-auto aspect-square max-h-[250px]"
         >
           <PieChart>
@@ -73,7 +40,7 @@ export function AppPieChart() {
               content={<ChartTooltipContent hideLabel active={false} payload={[]} coordinate={undefined} accessibilityLayer={false} activeIndex={undefined} />}
             />
             <Pie
-              data={chartData}
+              data={pieData}
               dataKey="visitors"
               nameKey="browser"
               innerRadius={60}

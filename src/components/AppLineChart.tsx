@@ -1,33 +1,20 @@
 "use client";
 
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "./ui/chart";
-
-const chartData = [
-  { month: "Январь", desktop: 186, mobile: 80 },
-  { month: "Февраль", desktop: 305, mobile: 200 },
-  { month: "Март", desktop: 237, mobile: 120 },
-  { month: "Апрель", desktop: 73, mobile: 190 },
-  { month: "Май", desktop: 209, mobile: 130 },
-  { month: "Июнь", desktop: 214, mobile: 140 },
-];
-const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "var(--chart-2)",
-  },
-} satisfies ChartConfig;
+import { 
+  // ChartConfig, 
+  ChartContainer, 
+  ChartTooltip, 
+  ChartTooltipContent 
+} from "./ui/chart";
+import { dataLine, lineConfig } from "./data/init-data-line";
 
 const AppLineChart = () => {
   return (
-    <ChartContainer config={chartConfig} className="mt-6">
+    <ChartContainer config={lineConfig} className="mt-6">
       <LineChart
         accessibilityLayer
-        data={chartData}
+        data={dataLine}
         margin={{
           left: 12,
           right: 12,

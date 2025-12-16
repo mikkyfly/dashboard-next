@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { shortBar } from "./data/init-data-bar";
 
 const chartConfig = {
   desktop: {
@@ -20,22 +21,6 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const chartData = [
-  { month: "Январь", desktop: 186, mobile: 80 },
-  { month: "Февраль", desktop: 305, mobile: 200 },
-  { month: "Март", desktop: 237, mobile: 120 },
-  { month: "Апрель", desktop: 173, mobile: 90 },
-  { month: "Май", desktop: 209, mobile: 130 },
-  { month: "Июнь", desktop: 214, mobile: 140 },
-  { month: "Июль", desktop: 178, mobile: 40 },
-  { month: "Август", desktop: 147, mobile: 87 },
-  { month: "Сентябрь", desktop: 247, mobile: 17 },
-  { month: "Октябрь", desktop: 107, mobile: 37 },
-  { month: "Ноябрь", desktop: 57, mobile: 8 },
-  { month: "Декабрь", desktop: 103, mobile: 67 },
-
-];
-
 const AppBarChart = () => {
   return (
     <Card className="flex flex-col h-[100%]">
@@ -47,7 +32,7 @@ const AppBarChart = () => {
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer config={chartConfig} className="min-h-[200px] max-h-[370px] w-full "> {/*w-full */}
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart accessibilityLayer data={shortBar}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"

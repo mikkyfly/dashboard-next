@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-import { data } from "./data/data-area"
+import { data } from "./data/init-data-area"
 import {
   Card,
   CardContent,
@@ -91,7 +91,7 @@ export function AppAreaChart() {
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         <ChartContainer
           config={chartConfig}
-          className="aspect-auto h-[500px] w-full"
+          className="aspect-auto h-[470px] w-full min-h-[200px]"
         >
           <AreaChart data={filteredData}>
             <defs>
